@@ -5,22 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class stok extends Model
+class pengadaan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'kode_barang',
         'nama_barang',
-        'stok',
-        'quality',
+        'harga_barang',
+        'jumlah_barang',
+        'tanggal_pengadaan',
+        'status_pengadaan',
     ];
 
     // Nama tabel yang digunakan oleh model
-    protected $table = 'stoks';
+    protected $table = 'pengadaans';
 
     // Kolom yang dianggap sebagai kunci utama (secara default, Eloquent mengasumsikan kolom 'id' sebagai kunci utama)
-    protected $primaryKey = 'id_pengecekan';
+    protected $primaryKey = 'kode_barang';
 
     // Menyatakan bahwa kunci utama adalah inkremen
     public $incrementing = true;

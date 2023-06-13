@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stoks', function (Blueprint $table) {
-            $table->increments('id_pengecekan');
-            $table->unsignedInteger('kode_barang'); // dari Almira(pengadaan)
+        Schema::create('pengeluarans', function (Blueprint $table) {
+            $table->increments('id_pengeluaran');
+            $table->integer('kode_barang');
             $table->string('nama_barang');
-            $table->integer('stok');
-            $table->string('quality');
+            $table->integer('jumlah_barang');
+            $table->date('tanggal_pengeluaran');
+            $table->string('status')->nullable()->default(null);
             $table->timestamps();
-
-
-            //ini belum
-            $table->foreign('kode_barang' -> referances ('kode_barang') -> on ('pengadaan'));
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stoks');
+        Schema::dropIfExists('pengeluarans');
     }
 };
